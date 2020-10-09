@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+    <head>
+        <title>USER ACCOUNTS</title>
+    </head>
+    <body>
+        USER ACCOUNTS:
+        <h:dataTable value="#{userBean.getUsers()}" var="p">
+                <h:column>    				
+                    <f:facet name="header">Username</f:facet>    				
+                        #{p.username}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Password</f:facet>
+                        #{p.userpassword}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">First Name</f:facet>
+                        #{p.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Surname</f:facet>
+                        #{p.surname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Currency</f:facet>
+                        #{p.currency}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Balance</f:facet>
+                        #{p.balance}
+                </h:column>
+            </h:dataTable>
+        
+        
+        <br/>
+         <h:link value="Back to Account" outcome="admin"/>
+         <br/>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+    <h:head>
+        <title> PAYMENT REQUESTS </title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h:outputLabel value="REQUESTS:"/>
+         <br/>
+        <h:dataTable binding="#{requestBean.dataTable}" value="#{requestBean.getRequests()}" var="p">
+                <h:column>    				
+                    <f:facet name="header">Sender</f:facet>    				
+                        #{p.sender}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Receiver Currency</f:facet>
+                        #{p.receiverCurrency}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Receiver Amount</f:facet>
+                        #{p.receiverAmount}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Accept</f:facet>
+                    <h:commandButton id="accept_request" type="submit" value="accept" action="#{requestBean.acceptRequest()}" title="Accept Request"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Reject</f:facet>
+                    <h:commandButton id="reject_request" type="submit" value="reject" action="#{requestBean.rejectRequest()}" title="Reject Request"/>
+                </h:column>
+            </h:dataTable>
+            <br/>
+        </h:form>
+        <br/>
+        <h:link value="Back to Account" outcome="user"/>
+    </h:body>
+</html>
+
+

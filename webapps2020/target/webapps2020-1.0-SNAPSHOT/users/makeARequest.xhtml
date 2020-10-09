@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+    <h:head>
+        <title>SEND A REQUEST</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            SEND A REQUEST
+            <br/>
+            Fill in the details and press the submit button.
+            <br/>
+            <h:outputLabel for="username" value="*Recipient: "/>
+            <h:selectOneMenu value="#{requestBean.receiver}">
+                <f:selectItems value="#{userBean.getUsernames()}" var="user" itemValue="#{user}" />
+            </h:selectOneMenu>
+            <br/>
+            <h:outputLabel for="amount" value="*Amount: "/>
+            <h:outputText id="currency" title="CURRENCY" value="#{transactionBean.getCurrencySymbol()}"/>
+            <h:inputText id ="amount" value="#{requestBean.amount}" title="Enter amount" label="amount" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="amount"/>
+            <br/>
+            <h:commandButton id="submit" type="submit" value="Submit" action="#{requestBean.createRequest()}" title="Send Request"/>
+            <h:commandButton id="reset" type="reset" value="Reset Form" title="Reset Form"/>
+        </h:form>
+        <h:link value="Back to Account" outcome="user"/>
+    </h:body>
+</html>
+

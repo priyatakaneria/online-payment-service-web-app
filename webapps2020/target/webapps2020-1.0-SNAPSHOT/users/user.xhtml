@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+    <h:head>
+        <title>USER ACCOUNT</title>
+    </h:head>
+    <h:body>
+        ACCOUNT
+        <br/>
+        Welcome <h:outputText id="welcome" title="WELCOME" value="#{userBean.getCurrentUserName()}"/> 
+        <br/>
+        BALANCE: <h:outputText id="currency" title="CURRENCY" value="#{userBean.getCurrentUserCurrency()}"/>
+        <h:outputText id="balance" title="BALANCE" value="#{userBean.getCurrentUserBalance()}"/>
+        <br/>
+        <h:link value="Make a payment" outcome="makeAPayment"/>
+        <br/>
+        <h:link value="Make a request" outcome="makeARequest"/>
+        <br/>
+        <h:link value="Incoming payment requests" outcome="incomingPaymentRequests"/>
+        <br/>        
+        <h:outputLabel value="TRANSACTIONS:"/>
+        <br/>
+        <h:dataTable value="#{transactionBean.getTransactions()}" var="p">
+                <h:column>    				
+                    <f:facet name="header">Sender</f:facet>    				
+                        #{p.sender}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Receiver</f:facet>
+                        #{p.receiver}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Sender Currency</f:facet>
+                        #{p.senderCurrency}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Sender Amount</f:facet>
+                        #{p.senderAmount}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Receiver Currency</f:facet>
+                        #{p.receiverCurrency}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Receiver Amount</f:facet>
+                        #{p.receiverAmount}
+                </h:column>
+            </h:dataTable>
+        <h:link value="Back to index" outcome="index"/>
+    </h:body>
+</html>
+

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>INDEX</title>
+    </h:head>
+    <h:body>
+        INDEX
+        <br/>
+        <div>Please log in first</div>
+        <h:link value="Log in" outcome="login"/>
+        <br/>
+        ...or register <h:link value="here" outcome="registration"/>
+        <br/>
+        <h:link value="Go to a user page" outcome="user"/>
+        <br/>
+        <h:link value="Go to an admin page" outcome="admin"/>
+        <br/>
+        <h:form>
+            Logout: <h:commandButton value="Logout" action="#{loginBean.logout()}"/>
+        </h:form>        
+    </h:body>
+</html>
